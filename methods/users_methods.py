@@ -2,7 +2,7 @@ import requests
 from data import *
 
 
-class User_methods:
+class UserMethods:
 
     # Создаем уникального пользователя
     @staticmethod
