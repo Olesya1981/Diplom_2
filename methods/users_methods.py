@@ -2,20 +2,23 @@ import requests
 from data import *
 
 
-class Users:
+class User_methods:
 
     # Создаем уникального пользователя
-    def create_unique_user(self):
+    @staticmethod
+    def create_unique_user(payload):
         response = requests.post(f"{Urls.BASE_URL}{Urls.USER_CREATE_URL}", payload)
-        yield response
-
+        return response
 
     # Авторизуемся с логином и паролем
-    def login_user(self):
-        response = requests.post(f"{Urls.BASE_URL}{Urls.USER_LOGIN_URL}", email, password)
+    @staticmethod
+    def login_user(payload):
+        response = requests.post(f"{Urls.BASE_URL}{Urls.USER_LOGIN_URL}", payload)
         return response
 
     # Изменяем данные пользователя
-    def change_user_data(self):
-        response = requests.patch(f"{Urls.BASE_URL}{Urls.USER_LOGIN_URL}", headers={'Authorization': 'accessToken'})
+    @staticmethod
+    def change_user_data(access_token, payload):
+        response = requests.patch(f"{Urls.BASE_URL}{Urls.USER_DATA_UPDATE_URL}",
+                                  headers={'Authorization': access_token}, data=payload)
         return response
