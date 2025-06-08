@@ -33,17 +33,17 @@ class TestOrders:
 
     @allure.title("Создание заказа с неверным хэшем ингредиентов")
     def test_create_order_with_wrong_ingredients_hash(self):
-        response = OrderMethods.create_order(WRONG_HASH)
+        response = OrderMethods.create_order(General.WRONG_HASH)
         assert (response.status_code, response.json()) == Orders.WRONG_HASH
 
     @allure.title("Получение заказов авторизованного пользователя")
     def test_get_user_orders_user_is_authorized(self):
-        response = UserMethods.login_user(EXISTING_PAYLOAD)
+        response = UserMethods.login_user(General.EXISTING_PAYLOAD)
         access_token = response.json()['accessToken']
         response = OrderMethods.get_current_user_orders_with_authorization(access_token)
         orders = response.json()['orders']
         number_list = [x['number'] for x in orders]
-        assert number_list == NUMBER_LIST
+        assert number_list == General.NUMBER_LIST
 
     @allure.title("Получение заказов неавторизованным пользователем")
     def test_get_user_orders_user_is_not_authorized(self):

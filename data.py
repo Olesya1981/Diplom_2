@@ -7,9 +7,10 @@ class Urls:
     GET_USER_ORDERS_URL = '/orders'
     INGREDIENTS_LIST_URL = '/ingredients'
 
-EXISTING_PAYLOAD = {'email': 'gena@krokodil.com', 'password': '4pmlrXgw$ap', 'name': 'Gennady'}
-WRONG_HASH = {"ingredients": ["60d3b41abdacab0026a733c6","609646e4dc916e00276b2870"]}
-NUMBER_LIST = [236410, 236411, 236413, 236428, 236429, 236431, 236435, 236436, 236438, 236440, 236441, 236442]
+class General:
+    EXISTING_PAYLOAD = {'email': 'gena@krokodil.com', 'password': '4pmlrXgw$ap', 'name': 'Gennady'}
+    WRONG_HASH = {"ingredients": ["60d3b41abdacab0026a733c6","609646e4dc916e00276b2870"]}
+    NUMBER_LIST = [236410, 236411, 236413, 236428, 236429, 236431, 236435, 236436, 236438, 236440, 236441, 236442]
 
 class Users:
     SUCCESS = 200, True
